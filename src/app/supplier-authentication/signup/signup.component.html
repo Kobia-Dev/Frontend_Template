@@ -1,0 +1,184 @@
+<div class="auth-container">
+  <div class="row auth-main">
+    <div class="col-sm-6 px-0 d-none d-sm-block" >
+      <img class="rounded mx-auto d-block" src="assets/images/contract/cont4.png" style="margin-top: 120px;" width="700px" height="700px"/>
+    </div>
+    <div class="col-sm-6 auth-form-section">
+      <div class="form-section">
+        <div class="auth-wrapper">
+          <div class="text-center">
+            <img src="assets/images/em.jpg" width="100px" height="100px" alt="" />
+          </div>
+          <h2 class="welcome-msg"> Sign Up </h2>
+          <p class="auth-signup-text text-muted">Enter details to create your account</p>
+          <form class="validate-form" [formGroup]="authForm">
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Companyname</mat-label>
+                      <input matInput formControlName="companyname" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('companyname').hasError('required')">
+                        Companyname is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Areas of interest</mat-label>
+                      <input formControlName="areasofinterestNonFormatted" matInput readonly />
+                      <button (click)="tenderCatLookup()" mat-icon-button matSuffix [attr.aria-label]="'Hide password'">
+                        <mat-icon>search</mat-icon>
+                      </button>
+                      <mat-error *ngIf="authForm.get('areasofinterestNonFormatted').hasError('areasofinterestNonFormatted') && authForm.get('areasofinterestNonFormatted').touched">
+                        Please enter Areas of interest! </mat-error>
+                    </mat-form-field>
+                    <!-- <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Areasofinterest</mat-label>
+                      <input matInput formControlName="areasofinterest" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('areasofinterest').hasError('required')">
+                        Areasofinterest is required
+                      </mat-error>
+                    </mat-form-field> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Firstname</mat-label>
+                      <input matInput formControlName="firstname" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('firstname').hasError('required')">
+                        Firstname is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Othernames</mat-label>
+                      <input matInput formControlName="othernames" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('othernames').hasError('required')">
+                        Othernames is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Country</mat-label>
+                      <input matInput formControlName="country" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('country').hasError('required')">
+                        Country is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-xl-12col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input matInput formControlName="emailaddress" required>
+                      <mat-icon matSuffix>mail</mat-icon>
+                      <mat-error *ngIf="authForm.get('emailaddress').hasError('required') || authForm.get('emailaddress').touched">
+                        Please enter a valid email address
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Phonenumber</mat-label>
+                      <input matInput formControlName="phonenumber" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('phonenumber').hasError('required')">
+                        Phonenumber is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Taxpin</mat-label>
+                      <input matInput formControlName="taxpin" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('taxpin').hasError('required')">
+                        Taxpin is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+               
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Physicaladdress</mat-label>
+                      <input matInput formControlName="physicaladdress" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('physicaladdress').hasError('required')">
+                        Physicaladdress is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Supplylocation</mat-label>
+                      <input matInput formControlName="supplylocations" required>
+                      <mat-icon matSuffix>face</mat-icon>
+                      <mat-error *ngIf="authForm.get('supplylocations').hasError('required')">
+                        Supplylocation is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>      
+            <div class="flex-sb-m w-full  p-b-20">
+              <div>
+                <span>Already Registered? <a routerLink="/supplier-authentication/signin">
+                    Login
+                  </a></span>
+              </div>
+            </div>
+            <div class="container-auth-form-btn">
+              <button mat-flat-button color="primary" class="auth-form-btn" [class.auth-spinner]="loading" [disabled]="loading" [disabled]="!authForm.valid" type="submit" (click)="onSubmit()">
+                Register
+              </button>
+            </div>
+          </form>
+          <h6 class="social-login-title">OR</h6>
+          <ul class="list-unstyled social-icon mb-0 mt-3">
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-google"></i>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded flex-c-m">
+                <i class="fab fa-facebook-f"></i>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-twitter"></i>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="rounded">
+                <i class="fab fa-linkedin-in"></i>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
