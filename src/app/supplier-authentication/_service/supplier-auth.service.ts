@@ -51,8 +51,8 @@ export class SuplierAuthService {
   login(data: any): Observable<any> {
     // Check if the provided credentials match the hardcoded credentials
     if (
-      data.username === "jonah@gmail.com" &&
-      data.password === "Pass1234"
+      data.username === "kobiajonah265@gmail.com" &&
+      data.password === "Pass12345"
     ) {
       // If they match, return a dummy user as if it's a successful login
       return of({
